@@ -13,11 +13,28 @@ function factor(num) {
   var factors = [];
   for(i = 2; i < num; i++) {
     if (num % i === 0) {
-      factors.push(i);
+      if (isPrime(i)) {
+        factors.push(i);
+      }
     }
   }
   console.log(factors);
   print_factors(factors);
+}
+
+function isPrime(num) {
+  var i, 
+      prime = true;
+
+  if (num === 2) {
+    return true;
+  }
+  for(i = 2; i < num; i++) {
+    if (num % i === 0) {
+      prime = false;
+    }
+    return prime;
+  }
 }
 
 function print_factors(factors) {
